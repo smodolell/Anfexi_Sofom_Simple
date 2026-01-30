@@ -1,0 +1,6 @@
+@Anfx.Profuturo.Sofom.Api_HostAddress = http://localhost:5238
+
+GET {{Anfx.Profuturo.Sofom.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

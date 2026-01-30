@@ -1,0 +1,85 @@
+[
+  {
+    "ContainingType": "Anfx.Profuturo.Sofom.Api.Endpoints.Cotizacion",
+    "Method": "SimularCotizacion",
+    "RelativePath": "api/cotizacion/",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TipoCotizacion",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "FechaNacimiento",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "IngresosMensuales",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      },
+      {
+        "Name": "MontoPensionHijos",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      },
+      {
+        "Name": "CapacidadPagoInforme",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      },
+      {
+        "Name": "TipoPension",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "IdPlan",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MontoPrestamo",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      },
+      {
+        "Name": "PorcentajePensionAlimentacion",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "EsReestructura",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContratosReestructura",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SeguroGastosFunerarios",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Cotizacion"
+    ],
+    "EndpointName": "SimularCotizacion",
+    "Description": "",
+    "Summary": "Simular Cotizacion"
+  }
+]

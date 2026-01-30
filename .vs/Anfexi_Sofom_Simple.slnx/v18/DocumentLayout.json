@@ -1,0 +1,350 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\services\\opcionvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\services\\opcionvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\queries\\simularcotizacionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\queries\\simularcotizacionqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\dtos\\cotizaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\dtos\\cotizaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8057421-A1E8-F686-0D9B-0E4E53485E74}|src\\Anfx.Profuturo.Sofom.Infrastructure\\Anfx.Profuturo.Sofom.Infrastructure.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.infrastructure\\persitence\\configurations\\rangofechaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8057421-A1E8-F686-0D9B-0E4E53485E74}|src\\Anfx.Profuturo.Sofom.Infrastructure\\Anfx.Profuturo.Sofom.Infrastructure.csproj|solutionrelative:src\\anfx.profuturo.sofom.infrastructure\\persitence\\configurations\\rangofechaconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FD9DAC4-C17C-B2C6-B2E4-DA1F2CCDC4DE}|src\\Anfx.Profuturo.Sofom.Domain\\Anfx.Profuturo.Sofom.Domain.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.domain\\entities\\rangofecha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FD9DAC4-C17C-B2C6-B2E4-DA1F2CCDC4DE}|src\\Anfx.Profuturo.Sofom.Domain\\Anfx.Profuturo.Sofom.Domain.csproj|solutionrelative:src\\anfx.profuturo.sofom.domain\\entities\\rangofecha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FD9DAC4-C17C-B2C6-B2E4-DA1F2CCDC4DE}|src\\Anfx.Profuturo.Sofom.Domain\\Anfx.Profuturo.Sofom.Domain.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.domain\\extensions\\planextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FD9DAC4-C17C-B2C6-B2E4-DA1F2CCDC4DE}|src\\Anfx.Profuturo.Sofom.Domain\\Anfx.Profuturo.Sofom.Domain.csproj|solutionrelative:src\\anfx.profuturo.sofom.domain\\extensions\\planextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\interfaces\\iopcionvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\interfaces\\iopcionvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85B1517F-E891-3B35-9CAE-40E0C41A0809}|src\\Anfx.Profuturo.Sofom.Api\\Anfx.Profuturo.Sofom.Api.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.api\\endpoints\\cotizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85B1517F-E891-3B35-9CAE-40E0C41A0809}|src\\Anfx.Profuturo.Sofom.Api\\Anfx.Profuturo.Sofom.Api.csproj|solutionrelative:src\\anfx.profuturo.sofom.api\\endpoints\\cotizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\services\\calculohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\services\\calculohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\interfaces\\icalculohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\interfaces\\icalculohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\strategies\\coordinators\\cotizacioncoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\strategies\\coordinators\\cotizacioncoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\strategies\\calculadora\\calculadoracapacidaddescuento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\strategies\\calculadora\\calculadoracapacidaddescuento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\commands\\confirmarcotizacioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\commands\\confirmarcotizacioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\queries\\simularcotizacionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\queries\\simularcotizacionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85B1517F-E891-3B35-9CAE-40E0C41A0809}|src\\Anfx.Profuturo.Sofom.Api\\Anfx.Profuturo.Sofom.Api.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.api\\requests\\cotizacion\\simularcotizacionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85B1517F-E891-3B35-9CAE-40E0C41A0809}|src\\Anfx.Profuturo.Sofom.Api\\Anfx.Profuturo.Sofom.Api.csproj|solutionrelative:src\\anfx.profuturo.sofom.api\\requests\\cotizacion\\simularcotizacionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|f:\\yggdrasil_2026\\anfexi\\anfexi_sofom_simple\\src\\anfx.profuturo.sofom.application\\features\\cotizacion\\queries\\simularcotizacionqueryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84453906-664F-636D-8030-69A9E7B2DE56}|src\\Anfx.Profuturo.Sofom.Application\\Anfx.Profuturo.Sofom.Application.csproj|solutionrelative:src\\anfx.profuturo.sofom.application\\features\\cotizacion\\queries\\simularcotizacionqueryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CotizacionDto.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\DTOs\\CotizacionDto.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\DTOs\\CotizacionDto.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\DTOs\\CotizacionDto.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\DTOs\\CotizacionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T20:04:10.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RangoFecha.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Domain\\Entities\\RangoFecha.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Domain\\Entities\\RangoFecha.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Domain\\Entities\\RangoFecha.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Domain\\Entities\\RangoFecha.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T20:00:12.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RangoFechaConfiguration.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Infrastructure\\Persitence\\Configurations\\RangoFechaConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Infrastructure\\Persitence\\Configurations\\RangoFechaConfiguration.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Infrastructure\\Persitence\\Configurations\\RangoFechaConfiguration.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Infrastructure\\Persitence\\Configurations\\RangoFechaConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T20:00:37.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OpcionValidator.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\OpcionValidator.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\OpcionValidator.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\OpcionValidator.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\OpcionValidator.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAmwIYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:58:22.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{401e94d6-209b-3e00-a3cc-775a911ffd82}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SimularCotizacionQueryHandler.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryHandler.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryHandler.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryHandler.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryHandler.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAIwCcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T16:08:49.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IOpcionValidator.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\IOpcionValidator.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\IOpcionValidator.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\IOpcionValidator.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\IOpcionValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:58:15.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlanExtensions.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Domain\\Extensions\\PlanExtensions.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Domain\\Extensions\\PlanExtensions.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Domain\\Extensions\\PlanExtensions.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Domain\\Extensions\\PlanExtensions.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T18:28:49.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CalculoHelper.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\CalculoHelper.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\CalculoHelper.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\CalculoHelper.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Services\\CalculoHelper.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAvwGAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:37:26.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CotizacionCoordinator.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Coordinators\\CotizacionCoordinator.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Coordinators\\CotizacionCoordinator.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Coordinators\\CotizacionCoordinator.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Coordinators\\CotizacionCoordinator.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwD8AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:40:27.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ICalculoHelper.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\ICalculoHelper.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\ICalculoHelper.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\ICalculoHelper.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Interfaces\\ICalculoHelper.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAIA2wBAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T18:13:16.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Cotizacion.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Api\\Endpoints\\Cotizacion.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Api\\Endpoints\\Cotizacion.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Api\\Endpoints\\Cotizacion.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Api\\Endpoints\\Cotizacion.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:23:55.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CalculadoraCapacidadDescuento.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Calculadora\\CalculadoraCapacidadDescuento.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Calculadora\\CalculadoraCapacidadDescuento.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Calculadora\\CalculadoraCapacidadDescuento.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Strategies\\Calculadora\\CalculadoraCapacidadDescuento.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAUwD0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T16:08:59.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SimularCotizacionQuery.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQuery.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQuery.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQuery.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:01:18.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SimularCotizacionRequest.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Api\\Requests\\Cotizacion\\SimularCotizacionRequest.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Api\\Requests\\Cotizacion\\SimularCotizacionRequest.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Api\\Requests\\Cotizacion\\SimularCotizacionRequest.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Api\\Requests\\Cotizacion\\SimularCotizacionRequest.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAADgvxoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:03:42.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ConfirmarCotizacionCommand.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Commands\\ConfirmarCotizacionCommand.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Commands\\ConfirmarCotizacionCommand.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Commands\\ConfirmarCotizacionCommand.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Commands\\ConfirmarCotizacionCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T19:33:53.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SimularCotizacionQueryValidator.cs",
+              "DocumentMoniker": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryValidator.cs",
+              "RelativeDocumentMoniker": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryValidator.cs",
+              "ToolTip": "F:\\Yggdrasil_2026\\Anfexi\\Anfexi_Sofom_Simple\\src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryValidator.cs",
+              "RelativeToolTip": "src\\Anfx.Profuturo.Sofom.Application\\Features\\Cotizacion\\Queries\\SimularCotizacionQueryValidator.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T16:45:17.937Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1883,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

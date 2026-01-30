@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/Anfx.Profuturo.Sofom.Api/Anfx.Profuturo.Sofom.Api.csproj" />
+  <Project Path="src/Anfx.Profuturo.Sofom.Application/Anfx.Profuturo.Sofom.Application.csproj" />
+  <Project Path="src/Anfx.Profuturo.Sofom.Domain/Anfx.Profuturo.Sofom.Domain.csproj" />
+  <Project Path="src/Anfx.Profuturo.Sofom.Infrastructure/Anfx.Profuturo.Sofom.Infrastructure.csproj" />
+</Solution>
