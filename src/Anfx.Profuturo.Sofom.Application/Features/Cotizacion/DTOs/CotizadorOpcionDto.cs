@@ -1,8 +1,11 @@
-﻿namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.DTOs;
+﻿using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Interfaces;
+using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Services;
+
+namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.DTOs;
 
 public class CotizadorOpcionDto
 {
-    
+
     public string FolioConfirmacion { get; set; } = string.Empty;
     public int? EsReestructura { get; set; }
 

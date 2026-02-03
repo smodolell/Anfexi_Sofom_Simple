@@ -7,10 +7,12 @@ namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Services;
 
 public class TablaAmortizacionService(
     IApplicationDbContext dbContext,
+    IUnitOfWork unitOfWork,
     IConsecutivoService consecutivoService
 ) : ITablaAmortizacionService
 {
     private readonly IApplicationDbContext _dbContext = dbContext;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly IConsecutivoService _consecutivoService = consecutivoService;
 
     public async Task<FrecuenciaPagoDto> ObtenerFrecuenciaPagoAsync(int idAgencia, int idPeriodicidad)
@@ -81,11 +83,11 @@ public class TablaAmortizacionService(
 
 
 
-    public async Task<int> GuardarTablaAmortizacionAsync(
+    public async Task<Result<int>> GuardarTablaAmortizacionAsync(
        int idCotizador,
        List<TablaAmortizaItemDto> tablaAmortizacionDto)
     {
-        using var transaction = await _dbContext.Database.BeginTransactionAsync();
+       await _unitOfWork.BeginTransactionAsync();
 
         try
         {
@@ -146,13 +148,13 @@ public class TablaAmortizacionService(
 
             await _consecutivoService.ReiniciarConsecutivoAsync("COT_TablaAmortizacion", tablaEntities.Max(m => m.IdTablaAmortiza));
 
-            await transaction.CommitAsync();
+            await _unitOfWork.CommitTransactionAsync();
 
             return tablaEntities.Count;
         }
         catch
         {
-            await transaction.RollbackAsync();
+            await _unitOfWork.RollbackTransactionAsync();
             throw;
         }
     }

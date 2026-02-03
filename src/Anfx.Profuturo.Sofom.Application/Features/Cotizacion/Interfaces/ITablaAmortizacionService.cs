@@ -10,7 +10,7 @@ public interface ITablaAmortizacionService
         int idPeriodicidad,
         decimal montoSolicitar);
 
-    Task<int> GuardarTablaAmortizacionAsync(
+    Task<Result<int>> GuardarTablaAmortizacionAsync(
         int idCotizador,
         List<TablaAmortizaItemDto> tablaAmortizacionDto
     );

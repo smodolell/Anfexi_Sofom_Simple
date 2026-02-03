@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="Common\Services\" />
     <Folder Include="Features\Documentos\" />
-    <Folder Include="Features\Solicitudes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Anfx.Profuturo.Sofom.Domain\Anfx.Profuturo.Sofom.Domain.csproj" />

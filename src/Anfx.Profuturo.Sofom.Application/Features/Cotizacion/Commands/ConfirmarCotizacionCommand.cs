@@ -1,14 +1,72 @@
-﻿using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.DTOs;
+﻿using Anfx.Profuturo.Sofom.Application.Common.Saga;
+using Anfx.Profuturo.Sofom.Application.Features.Contratos.Interfaces;
+using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.DTOs;
+using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Interfaces;
+using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Steps;
+using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Interfaces;
+using Microsoft.Extensions.Options;
 
 namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Commands;
 
 public record ConfirmarCotizacionCommand(CotizadorOpcionDto model) : ICommand<Result<ConfirmarCotizacionDto>>;
 
 
-internal class ConfirmarCotizacionCommandHandler : ICommandHandler<ConfirmarCotizacionCommand, Result<ConfirmarCotizacionDto>>
+internal class ConfirmarCotizacionCommandHandler(
+    IApplicationDbContext dbContext,
+    IValidator<CotizadorOpcionDto> validator,
+    IConfirmarCotizacionSagaFactory confirmarCotizacionSagaFactory,
+    
+    ILogger<ConfirmarCotizacionCommandHandler> logger
+) : ICommandHandler<ConfirmarCotizacionCommand, Result<ConfirmarCotizacionDto>>
 {
-    public Task<Result<ConfirmarCotizacionDto>> HandleAsync(ConfirmarCotizacionCommand message, CancellationToken cancellationToken = default)
+    private readonly IApplicationDbContext _dbContext = dbContext;
+    private readonly IValidator<CotizadorOpcionDto> _validator = validator;
+    private readonly IConfirmarCotizacionSagaFactory _confirmarCotizacionSagaFactory = confirmarCotizacionSagaFactory;
+    private readonly ILogger<ConfirmarCotizacionCommandHandler> _logger = logger;
+
+    public async Task<Result<ConfirmarCotizacionDto>> HandleAsync(ConfirmarCotizacionCommand message, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+
+        var model = message.model;
+
+        var validateResult = await _validator.ValidateAsync(model);
+        if (!validateResult.IsValid)
+        {
+            return Result.Invalid(validateResult.AsErrors());
+        }
+        try
+        {
+            var context = new ConfirmarCotizacionContext
+            {
+                Opcion = model
+            };
+            var saga = _confirmarCotizacionSagaFactory.ConfirmarCotizacionSaga(model.EsReestructura == 1);
+
+            var sagaResult = await saga.ExecuteAsync(context);
+
+            if (sagaResult.IsSuccess)
+            {
+                var result = new ConfirmarCotizacionDto
+                {
+                    folio = context.FolioConfirmacion
+                };
+
+                return Result.Success(result);
+            }
+            else
+            {
+                return Result.Error(new ErrorList(sagaResult.Errors));
+            }
+
+        }
+        catch (Exception ex)
+        {
+
+            _logger.LogError(ex, "Error en confirmación de cotización");
+            return Result.Error(ex.Message);
+        }
+
     }
+
+
 }

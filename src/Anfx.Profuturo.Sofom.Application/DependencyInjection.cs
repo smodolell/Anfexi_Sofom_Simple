@@ -1,6 +1,9 @@
-﻿using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Factories;
+﻿using Anfx.Profuturo.Sofom.Application.Features.Contratos.Interfaces;
+using Anfx.Profuturo.Sofom.Application.Features.Contratos.Services;
+using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Factories;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Interfaces;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Services;
+using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Steps;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Calculadora;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Coordinators;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Seguro;
@@ -52,12 +55,22 @@ public static class DependencyInjection
 
         //services.AddScoped<ICotizadorService, CotizadorService>();
         //services.AddScoped<ISolicitudService, SolicitudService>();
-        //services.AddScoped<ITablaAmortizacionService, TablaAmortizacionService>();
-        //services.AddScoped<IFolioService, FolioService>();
-        //services.AddScoped<IReestructuracionService, ReestructuracionService>();
+        services.AddScoped<IFolioService, FolioService>();
+        services.AddScoped<IReestructuracionService, ReestructuracionService>();
 
         // Registrar factory y coordinador
         services.AddScoped<ICalculadoraStrategyFactory, CalculadoraStrategyFactory>();
+
+
+        services.AddScoped<IConfirmarCotizacionSagaFactory,ConfirmarCotizacionSagaFactory>();
+        services.AddScoped<StepReestructura>();
+        services.AddScoped<StepReestructuraUpdateSolicitd>();
+        services.AddScoped<StepReestructuraUpdateFase>();
+        services.AddScoped<StepReestructuraObtenerFolio>();
+        services.AddScoped<StepCrearCotizador>();
+        services.AddScoped<StepCrearCotizador>();
+        services.AddScoped<StepGenerarTablaAmortizacion>();
+
         services.AddScoped<CotizacionCoordinator>();
 
         //Services 
