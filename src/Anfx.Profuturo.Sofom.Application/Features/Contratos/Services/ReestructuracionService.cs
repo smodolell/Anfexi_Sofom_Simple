@@ -11,14 +11,14 @@ namespace Anfx.Profuturo.Sofom.Application.Features.Contratos.Services;
 public class ReestructuracionService(
     IUnitOfWork unitOfWork,
     IApplicationDbContext dbContext,
-    IDatabaseServices databaseService,
+    IDatabaseService databaseService,
     IFolioService folioService,
     ILogger<ReestructuracionService> logger
 ) : IReestructuracionService
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly IApplicationDbContext _dbContext = dbContext;
-    private readonly IDatabaseServices _databaseService = databaseService;
+    private readonly IDatabaseService _databaseService = databaseService;
     private readonly IFolioService _folioService = folioService;
     private readonly ILogger<ReestructuracionService> _logger = logger;
 

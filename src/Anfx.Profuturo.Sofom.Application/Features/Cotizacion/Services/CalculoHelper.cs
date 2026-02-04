@@ -4,10 +4,10 @@ using Microsoft.VisualBasic;
 
 namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Services;
 
-public class CalculoHelper(IApplicationDbContext dbContext,IDatabaseServices proceduresServices) : ICalculoHelper
+public class CalculoHelper(IApplicationDbContext dbContext,IDatabaseService proceduresServices) : ICalculoHelper
 {
     private readonly IApplicationDbContext _dbContext = dbContext;
-    private readonly IDatabaseServices _proceduresServices = proceduresServices;
+    private readonly IDatabaseService _proceduresServices = proceduresServices;
 
     public decimal CalcularValorPresente(decimal pagoPeriodico, decimal tasaPeriodica, int numeroPeriodos)
     {

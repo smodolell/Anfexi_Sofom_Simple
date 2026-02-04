@@ -48,7 +48,7 @@ public static class PersitenceServiceRegistration
 
 
         // Register Unit of Work
-        services.AddScoped<IDatabaseServices, DatabaseServices>();
+        services.AddScoped<IDatabaseService, DatabaseService>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IConsecutivoService, ConsecutivoService>();
 
