@@ -1,10 +1,6 @@
-﻿using Anfx.Profuturo.Sofom.Application.Common.Saga;
-using Anfx.Profuturo.Sofom.Application.Features.Contratos.Interfaces;
-using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.DTOs;
+﻿using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.DTOs;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Interfaces;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Steps;
-using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Interfaces;
-using Microsoft.Extensions.Options;
 
 namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Commands;
 
@@ -42,7 +38,7 @@ internal class ConfirmarCotizacionCommandHandler(
             };
             var saga = _confirmarCotizacionSagaFactory.ConfirmarCotizacionSaga(model.EsReestructura == 1);
 
-            var sagaResult = await saga.ExecuteAsync(context);
+            var sagaResult = await saga.ExecuteAsync(context, cancellationToken);
 
             if (sagaResult.IsSuccess)
             {

@@ -7,12 +7,12 @@ public class StepReestructuraObtenerFolio(IApplicationDbContext dbContext) : ISa
 {
     private readonly IApplicationDbContext _dbContext = dbContext;
 
-    public async Task<Result> CompensateAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> CompensateAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         return await Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         var cotizador = await _dbContext.COT_Cotizador.SingleOrDefaultAsync(r => r.IdCotizador == context.IdCotizador);
         if (cotizador == null) return Result.NotFound("Contizador no encontrado");

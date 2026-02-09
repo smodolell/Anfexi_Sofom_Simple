@@ -18,12 +18,12 @@ public class CrearSolicitanteStep(
     private readonly IDatabaseService _databaseService = databaseService;
     private readonly IConsecutivoService _consecutivoService = consecutivoService;
 
-    public Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         var model = context.Model;
         try
@@ -65,17 +65,16 @@ public class CrearSolicitanteStep(
 
 
             var solicitantePF = solicitante.OT_SolicitantePF;
+
             if (solicitantePF == null)
             {
-                if (solicitantePF == null)
+                solicitantePF = new OT_SolicitantePF
                 {
-                    solicitantePF = new OT_SolicitantePF
-                    {
-                        IdSolicitante = solicitante.IdSolicitante,
-                    };
-                    solicitante.OT_SolicitantePF = solicitantePF;
-                }
+                    IdSolicitante = solicitante.IdSolicitante,
+                };
+                solicitante.OT_SolicitantePF = solicitantePF;
             }
+
 
 
             MapSolicitante(model, solicitante);
@@ -259,7 +258,7 @@ public class CrearSolicitanteStep(
         else
         {
             // Primero intentar encontrar banco existente (método CrearSolicitante)
-            var bancoExistente = await _dbContext.Banco.FirstOrDefaultAsync(r=>r.Banco1== nombreBanco && r.IdAgencia == 3);
+            var bancoExistente = await _dbContext.Banco.FirstOrDefaultAsync(r => r.Banco1 == nombreBanco && r.IdAgencia == 3);
 
             if (bancoExistente != null)
             {
@@ -282,7 +281,7 @@ public class CrearSolicitanteStep(
                             Banco1 = nombreBanco,
                             IdAgencia = 3,
                         };
-                        await _dbContext.Banco.AddAsync(nuevoBanco);                        
+                        await _dbContext.Banco.AddAsync(nuevoBanco);
                         idBancoAsignado = nuevoBanco.IdBanco;
                     }
                     catch

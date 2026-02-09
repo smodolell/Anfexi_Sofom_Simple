@@ -47,7 +47,7 @@ public class Cotizacion : EndpointGroupBase
             IngresosMensuales = request.IngresosMensuales,
             TipoCotizacion = request.TipoCotizacion,
             IdAgencia = 3,
-            TipoPension = request.TipoPension,
+            TipoPension = 1,// request.TipoPension,
             MontoPrestamo = request.MontoPrestamo,
             EsReestructura = request.EsReestructura ?? 0,
             PorcentajePensionAlimentacion = request.PorcentajePensionAlimentacion ?? 0,

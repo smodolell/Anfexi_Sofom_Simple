@@ -1,7 +1,6 @@
 ﻿using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.DTOs;
 using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Factories;
 using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Steps;
-using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,7 +12,7 @@ internal class CreateSolicitudCommandHandler(
     IUnitOfWork unitOfWork,
     IApplicationDbContext dbContext,
     IConsecutivoService consecutivoService,
-     ISolicitudSagaFactory solicitudSagaFactory
+    ISolicitudSagaFactory solicitudSagaFactory
 ) : ICommandHandler<CreateSolicitudCommand, Result<CreateSolicitudDto>>
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
@@ -26,12 +25,15 @@ internal class CreateSolicitudCommandHandler(
     {
 
         var model = message.Model;
+
         var cotizador = await _dbContext.COT_Cotizador
             .FirstOrDefaultAsync(r => r.Folio == model.Folio);
+
         if (cotizador == null)
         {
             return Result.NotFound("Cotizador no encotrado");
         }
+
         var solicitud = await _dbContext.OT_Solicitud
             .FirstOrDefaultAsync(r => r.IdCotizador == cotizador.IdCotizador);
         if (solicitud == null)
@@ -58,17 +60,14 @@ internal class CreateSolicitudCommandHandler(
 
         var saga = _solicitudSagaFactory.CreateSolicitudSaga(context.EsReestructuracion);
 
-        var sagaResult = await saga.ExecuteAsync(context);
-
-
-
-        
-
-
         var result = await saga.ExecuteAsync(context);
         if (result.IsSuccess)
         {
 
+            return Result.Success(new CreateSolicitudDto
+            {
+                folio = context.Folio,
+            });
         }
         return Result.Error();
     }
@@ -82,7 +81,7 @@ internal class CreateSolicitudCommandHandler(
 
 
 
-internal class CreateSolicitudDto
+public class CreateSolicitudDto
 {
     public List<SolicitudDto> lista { get; set; }
     public string folio { get; set; }

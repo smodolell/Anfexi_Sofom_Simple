@@ -14,13 +14,13 @@ public class CrearExpedienteStep(
     private readonly IDatabaseService _databaseService = databaseService;
     private readonly IConsecutivoService _consecutivoService = consecutivoService;
 
-    public Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         // Lógica de compensación si es necesario
         return Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -69,7 +69,6 @@ public class CrearExpedienteStep(
         int idDuenioExpediente,
         int idQuePersona)
     {
-        // YA NO inicia transacción aquí
         var consecutivo = await _consecutivoService.ObtenerSiguienteConsecutivoAsync("EXP_Expediente");
 
         if (!consecutivo.Success)
@@ -105,7 +104,6 @@ public class CrearExpedienteStep(
         int currentIdExpediente,
         int idUsuarioActual)
     {
-        // YA NO inicia transacción aquí
 
         var idAgencia = solicitud.IdCotizadorNavigation?.IdAgencia ?? 0;
         if (idAgencia == 0)

@@ -13,12 +13,12 @@ public class ActualizarFaseStep(
     private readonly IApplicationDbContext _dbContext = dbContext;
     private readonly IConsecutivoService _consecutivoService = consecutivoService;
 
-    public Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
 
         var solicitud = await _dbContext

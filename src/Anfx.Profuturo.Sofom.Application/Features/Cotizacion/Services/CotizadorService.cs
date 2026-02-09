@@ -72,85 +72,9 @@ public class CotizadorService(
         }
         catch (Exception ex)
         {
+          await   _unitOfWork.RollbackTransactionAsync();
             return Result.Error($"Error al calcular CAT: {ex.Message}");
         }
     }
 
-    //public async Task<Result<int>> CreateCotizadorAsync(CotizadorOpcionDto dto)
-    //{
-    //    var plan = await _dbContext.COT_Plan.SingleOrDefaultAsync(r => r.IdPlan == dto.idPlan);
-    //    if (plan == null) return Result.NotFound("Plan no exixte");
-
-    //    var plazo = await _dbContext.COT_Plazo
-    //        .SingleOrDefaultAsync(r => r.Plazo == dto.Plazo);
-    //    if (plazo == null) return Result.NotFound("Plazo no encotrado");
-
-    //    await _unitOfWork.BeginTransactionAsync();
-
-    //    var consecutivo = await _consecutivoService.ObtenerSiguienteConsecutivoAsync("COT_Cotizador");
-    //    if (!consecutivo.Success) return Result.NotFound("Consecutivo error");
-
-    //    var idCotizador = consecutivo.ConsecutivoGenerado;
-
-
-    //    try
-
-    //    {
-    //        int idTasa = 0;
-    //        var fechahoy = Convert.ToDateTime(DateTime.Now.ToString("d"));
-    //        var FechaSimulacion = DateTime.Now;
-
-    //        var itemDb = new COT_Cotizador
-    //        {
-    //            IdCotizador = idCotizador,
-    //            Folio = dto.FolioConfirmacion,
-    //            IdAgencia = CotizacionConstants.ID_AGENCIA_PENSIONES,
-    //            IdPersonaJuridica = 1,
-    //            IdPlan = plan.IdPlan,
-    //            FechaNacimiento = DateTime.Now,
-    //            FechaSimulacion = FechaSimulacion,
-    //            DescuentosFijosMensual = dto.DescuentoMensual,
-    //            SueldoDisponible = 0,
-    //            MontoSolicitar = dto.MontoPrestamo,
-    //            FrecuenciaPago = CotizacionConstants.ID_PERIODICIDAD_MENSUAL,
-    //            IdPlazo = plazo.IdPlazo,
-    //            IdTipoCotizacion = 1,
-    //            IdTasa = idTasa,
-    //            Tasa = dto.Tasa,
-    //            MontoPension = 0,
-    //            MontoPrestamo = dto.MontoPrestamo,
-    //            MontoQDeceaPagar = 0,
-    //            IdTipoPension = 1,
-    //            PrestamoVoz = false,
-    //            IdTipoSeguro = plan.IdTipoSeguro,
-    //            SeguroGastosFunerarios = false,
-    //            Seguro = dto.Seguro,
-    //            PorcentajeSeguro = dto.PorcentajeSeguro,
-    //            CapacidadPagoInforme = dto.DescuentoMensual,
-    //            NumeroPagosFijos = dto.Plazo,
-    //            PagoFijoTotalAproximado = dto.DescuentoMensual,
-    //            PagoFijoTotalAproximadoMensual = dto.DescuentoMensual,
-    //            SuapSipre = dto.FolioConfirmacion,
-    //            EsOneClick = true
-    //        };
-
-    //        itemDb.Folio = await _folioService.GenerarFolioAsync(itemDb.IdCotizador, itemDb.IdAgencia ?? 0);
-
-    //        await _dbContext.COT_Cotizador.AddAsync(itemDb);
-
-
-
-    //        await _unitOfWork.CommitTransactionAsync();
-
-    //        return Result.Success(itemDb.IdCotizador);
-    //    }
-    //    catch (Exception ex)
-    //    {
-
-    //        await _unitOfWork.RollbackTransactionAsync();
-    //        return Result.CriticalError(ex.Message);
-    //    }
-
-
-    //}
 }

@@ -1,17 +1,17 @@
 ﻿namespace Anfx.Profuturo.Sofom.Domain.Entities;
 
-public partial class COT_Cotizador
+public class COT_Cotizador
 {
 
     public int IdCotizador { get; set; }
 
     public int? IdAgencia { get; set; }
 
-    public string NombreCliente { get; set; }
+    public string? NombreCliente { get; set; }
 
-    public string RFC { get; set; }
-    public string CURP { get; set; }
-    public string NSS { get; set; }
+    public string? RFC { get; set; }
+    public string? CURP { get; set; }
+    public string? NSS { get; set; }
 
     public int? IdPersonaJuridica { get; set; }
 
@@ -45,11 +45,11 @@ public partial class COT_Cotizador
 
     public decimal? CAT { get; set; }
 
-    public string ApellidoPaterno { get; set; }
+    public string? ApellidoPaterno { get; set; }
 
-    public string ApellidoMaterno { get; set; }
+    public string? ApellidoMaterno { get; set; }
 
-    public string ClaveRastreoBancaria { get; set; }
+    public string? ClaveRastreoBancaria { get; set; }
 
     public bool? ValidaClaveRastreoBancaria { get; set; }
 
@@ -91,13 +91,13 @@ public partial class COT_Cotizador
 
     public int? IdTipoSeguro { get; set; }
 
-    public string SuapSipre { get; set; }
+    public string? SuapSipre { get; set; }
 
-    public string Nss { get; set; }
+    //public string Nss { get; set; }
 
-    public string GrupoPago { get; set; }
+    public string? GrupoPago { get; set; }
 
-    public string Curp { get; set; }
+    //public string Curp { get; set; }
 
     public bool? EsOneClick { get; set; }
 

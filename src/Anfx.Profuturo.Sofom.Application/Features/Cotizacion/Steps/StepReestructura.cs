@@ -7,12 +7,12 @@ public class StepReestructura(IReestructuracionService reestructuraService) : IS
 {
     private readonly IReestructuracionService _reestructuraService = reestructuraService;
 
-    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context)
+    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         var op = context.Opcion;
         var result = await _reestructuraService.IniciarReestructuracion(

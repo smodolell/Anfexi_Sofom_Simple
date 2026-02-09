@@ -21,10 +21,9 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\Services\" />
-    <Folder Include="Features\Documentos\" />
+    <ProjectReference Include="..\Anfx.Profuturo.Sofom.Domain\Anfx.Profuturo.Sofom.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Anfx.Profuturo.Sofom.Domain\Anfx.Profuturo.Sofom.Domain.csproj" />
+    <Folder Include="Features\Documentos\DTOs\" />
   </ItemGroup>
 </Project>

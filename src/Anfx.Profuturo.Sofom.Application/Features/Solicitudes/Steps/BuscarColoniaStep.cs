@@ -6,12 +6,12 @@ public class BuscarColoniaStep(IDatabaseService databaseServices) : ISagaStep<Cr
 {
     private readonly IDatabaseService _databaseServices = databaseServices;
 
-    public async Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public async Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         return await Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         var domicilio = context.Model.Domicilio;
 

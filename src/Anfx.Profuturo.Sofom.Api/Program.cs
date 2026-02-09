@@ -1,12 +1,17 @@
 ﻿using Anfx.Profuturo.Sofom.Api;
 using Anfx.Profuturo.Sofom.Api.Infrastructure;
-using Anfx.Profuturo.Sofom.Infrastructure;
 using Anfx.Profuturo.Sofom.Application;
+using Anfx.Profuturo.Sofom.Application.Common.Dtos;
+using Anfx.Profuturo.Sofom.Infrastructure;
+using Microsoft.Identity.Client;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
+
+
+builder.Services.Configure<AppConfig>(configuration.GetSection("AppConfig"));
 
 // Add services to the container.
 builder.Services.AddApplicationServices();

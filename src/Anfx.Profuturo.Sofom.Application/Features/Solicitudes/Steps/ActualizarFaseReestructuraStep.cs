@@ -9,12 +9,12 @@ public class ActualizarFaseReestructuraStep(
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly IApplicationDbContext _dbContext = dbContext;
-    public Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         var solicitud = await _dbContext.OT_Solicitud
             .Include(i => i.IdCotizadorNavigation)

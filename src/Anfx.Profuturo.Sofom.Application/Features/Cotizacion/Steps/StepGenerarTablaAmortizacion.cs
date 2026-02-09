@@ -12,14 +12,16 @@ class StepGenerarTablaAmortizacion(
     private readonly IApplicationDbContext _dbContext = dbContext;
     private readonly ITablaAmortizacionService _tablaAmortizacionService = tablaAmortizacionService;
 
-    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context)
+    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
-        var cotizador = await _dbContext.COT_Cotizador.SingleOrDefaultAsync(r => r.IdCotizador == context.IdCotizador);
+        var cotizador = await _dbContext.COT_Cotizador
+            .AsNoTracking()
+            .SingleOrDefaultAsync(r => r.IdCotizador == context.IdCotizador);
         if (cotizador == null) return Result.NotFound("No se encontro el cotizador");
 
 
@@ -32,7 +34,7 @@ class StepGenerarTablaAmortizacion(
             cotizador.MontoSolicitar
         );
 
-        var result = await _tablaAmortizacionService.GuardarTablaAmortizacionAsync(cotizador.IdCotizador,tablaAmotiza);
+        var result = await _tablaAmortizacionService.GuardarTablaAmortizacionAsync(cotizador.IdCotizador, tablaAmotiza);
 
         if (result.IsSuccess)
         {

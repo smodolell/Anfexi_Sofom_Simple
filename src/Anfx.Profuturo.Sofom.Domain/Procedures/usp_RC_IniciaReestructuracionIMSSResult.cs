@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Anfx.Profuturo.Domain.Entities;
+namespace Anfx.Profuturo.Sofom.Domain.Procedures;
 
 public partial class usp_RC_IniciaReestructuracionIMSSResult
 {

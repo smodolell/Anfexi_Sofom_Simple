@@ -1,5 +1,5 @@
-﻿using Anfx.Profuturo.Domain.Entities;
-using Anfx.Profuturo.Sofom.Application.Common.Dtos;
+﻿using Anfx.Profuturo.Sofom.Application.Common.Dtos;
+using Anfx.Profuturo.Sofom.Domain.Procedures;
 
 namespace Anfx.Profuturo.Sofom.Application.Common.Interfaces;
 

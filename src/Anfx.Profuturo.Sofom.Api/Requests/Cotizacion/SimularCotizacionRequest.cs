@@ -31,8 +31,8 @@ public class SimularCotizacionRequest
 
     public decimal CapacidadPagoInforme { get; set; }
 
-    [DefaultValue(1)]
-    public int TipoPension { get; set; }
+    //[DefaultValue(1)]
+    //public int TipoPension { get; set; }
 
     /// <summary>
     /// Identificador del Plan

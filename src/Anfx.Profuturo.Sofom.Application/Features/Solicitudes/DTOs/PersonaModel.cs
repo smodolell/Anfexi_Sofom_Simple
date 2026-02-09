@@ -1,28 +1,5 @@
 ﻿namespace Anfx.Profuturo.Sofom.Application.Features.Solicitudes.DTOs;
 
-public class SolicitudModel
-{
-    public SolicitudModel()
-    {
-        Persona = new PersonaModel();
-        Domicilio = new DomicilioModel();
-    }
-
-    public string NumeroEmpleadoVendedor { get; set; }
-    public PersonaModel Persona { get; set; }
-    public DomicilioModel Domicilio { get; set; }
-    public bool AvisoPrivacidad { get; set; }
-    public string Ubicacion { get; set; }
-    public bool PermisoUsoCamara { get; set; }
-    public bool PermisoUsoMicrofono { get; set; }
-    public string FechaInforme { get; set; }
-    public string ConceptosInforme { get; set; }
-    public string FolioConfirmacion { get; set; }
-    public string CodigoError { get; set; }
-    public string Folio { get; set; }
-
-}
-
 public class PersonaModel
 {
     /// <summary>
@@ -63,21 +40,4 @@ public class PersonaModel
     public string NoSucursalBancaria { get; set; }
     public int? AñosAntiguedad { get; set; }
 
-}
-public class DomicilioModel
-{
-    public string Calle { get; set; }
-    public string NumExt { get; set; }
-    public string NumInt { get; set; }
-    public string CP { get; set; }
-    public string Estado { get; set; }
-    public string Delegacion { get; set; }
-    public int IdColonia { get; set; }
-    public string Colonia { get; set; }
-    public string Ciudad { get; set; }
-    public string Pais { get; set; }
-    public string Telefono { get; set; }
-    public string Celular { get; set; }
-    public string CiaTelefonica { get; set; }
-    public string Correo { get; set; }
 }

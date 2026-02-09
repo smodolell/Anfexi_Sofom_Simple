@@ -1,3 +1,4 @@
+using Anfx.Profuturo.Domain.Entities;
 using Anfx.Profuturo.Sofom.Application.Common.Interfaces;
 using Anfx.Profuturo.Sofom.Infrastructure.Persitence.Interfases;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,8 @@ public partial class ApplicationDbContext : DbContext, IApplicationDbContext
     public virtual DbSet<BeneficiosAdicionales> BeneficiosAdicionales { get; set; }
 
     public virtual DbSet<BitacoraCodigos> BitacoraCodigos { get; set; }
+    public virtual DbSet<CatTipoDocumentoExpediente> CatTipoDocumentoExpedientes { get; set; }
+    public virtual DbSet<CatTiposMimeDocumento> CatTiposMimeDocumentos { get; set; }
 
     public virtual DbSet<COT_Agencia> COT_Agencia { get; set; }
 

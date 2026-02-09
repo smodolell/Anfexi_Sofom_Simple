@@ -11,12 +11,12 @@ public class StepReestructuraUpdateSolicitd(
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly IApplicationDbContext _dbContext = dbContext;
 
-    public async Task<Result> CompensateAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> CompensateAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         return await Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         await _unitOfWork.BeginTransactionAsync();
 

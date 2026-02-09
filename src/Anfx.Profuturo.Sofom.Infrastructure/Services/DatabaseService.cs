@@ -1,9 +1,10 @@
-﻿using Anfx.Profuturo.Domain.Entities;
-using Anfx.Profuturo.Sofom.Application.Common.Dtos;
+﻿using Anfx.Profuturo.Sofom.Application.Common.Dtos;
 using Anfx.Profuturo.Sofom.Application.Common.Interfaces;
+using Anfx.Profuturo.Sofom.Domain.Procedures;
 using Anfx.Profuturo.Sofom.Infrastructure.Persitence;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
 
 namespace Anfx.Profuturo.Sofom.Infrastructure.Services;
@@ -25,7 +26,7 @@ internal class DatabaseService(ApplicationDbContext dbContext,ILogger<DatabaseSe
 
     public async Task<List<usp_SaldoLiquidacionResult>> usp_SaldoLiquidacionAsync(int? idContrato, DateTime? fecha, CancellationToken cancellationToken = default)
     {
-      return  await _dbContext.Procedures.usp_SaldoLiquidacionAsync(idContrato, fecha);
+      return  await _dbContext.Procedures.uspSaldoLiquidacionAsync(idContrato, fecha);
     }
 
     public int? GetIdCiaTelefonica(string ciaTelefonica)
@@ -136,6 +137,10 @@ internal class DatabaseService(ApplicationDbContext dbContext,ILogger<DatabaseSe
 
     public List<DocumentoConfigItem> ObtenerDocumentosConfigurados(int expedienteId, int idUsuario, int idAgencia)
     {
+        var pIdExpediente = new SqlParameter("@p0", expedienteId);
+        var pIdUsuario = new SqlParameter("@p1", idUsuario);
+        var pIdAgencia = new SqlParameter("@p2", idAgencia);
+
         var sql = @"
             SELECT
                 ROW_NUMBER() OVER (ORDER BY ee.IdExpediente) AS NumeroFila,
@@ -156,9 +161,8 @@ internal class DatabaseService(ApplicationDbContext dbContext,ILogger<DatabaseSe
             ) 
             AND ed.IdAgencia = @p2";
 
-        return _dbContext.Database
-            .SqlQueryRaw<DocumentoConfigItem>(sql, expedienteId, idUsuario, idAgencia)
-            .ToList();
+        return _dbContext.Database .SqlQueryRaw<DocumentoConfigItem>(sql, pIdExpediente, pIdUsuario, pIdAgencia)
+                                         .ToList();
     }
 
 }

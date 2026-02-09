@@ -3,6 +3,6 @@
 public interface ISagaOrchestrator<TContext>
 {
     void AddStep(ISagaStep<TContext> step);
-    Task<Result> ExecuteAsync(TContext context);
+    Task<Result> ExecuteAsync(TContext context, CancellationToken cancellationToken = default);
     List<SagaStepExecution> GetExecutionHistory();
 }

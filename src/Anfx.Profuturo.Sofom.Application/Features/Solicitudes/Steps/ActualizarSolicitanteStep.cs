@@ -17,12 +17,12 @@ public class ActualizarSolicitanteStep(
     private readonly IDatabaseService _databaseServices = databaseServices;
     private readonly IConsecutivoService _consecutivoService = consecutivoService;
 
-    public Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public async Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        return await Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         if (context.IdSolicitante == 0)
             return Result.Error("NO se puede");

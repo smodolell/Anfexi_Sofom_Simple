@@ -7,11 +7,11 @@ class StepGenerarCAT(ICotizadorService cotizadorService) : ISagaStep<ConfirmarCo
 {
     private readonly ICotizadorService _cotizadorService = cotizadorService;
 
-    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context)
+    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(Result.Success());
     }
-    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         var result = await _cotizadorService.CalcularCAT(context.IdCotizador);
 

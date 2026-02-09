@@ -162,3 +162,11 @@ public class ConsecutivoService : IConsecutivoService
         }
     }
 }
+
+//// Definición de la entidad Consecutivo (si no está en otro lugar)
+//public class Consecutivo
+//{
+//    public string NombreTabla { get; set; } = string.Empty;
+//    public int IdConsecutivo { get; set; }
+//    public DateTime FecUltimoCambio { get; set; }
+//}

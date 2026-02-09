@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Globalization;
 
 namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Queries;
@@ -12,51 +13,49 @@ public class SimularCotizacionQueryValidator : AbstractValidator<SimularCotizaci
     {
         _dbContext = dbContext;
 
-        // Para replicar el comportamiento de "return Errores;" (parar en primer error)
-        //CascadeMode = CascadeMode.Stop;
 
-        // ===== VALIDACIONES BÁSICAS =====
-
-        // 1. Fecha de nacimiento (ya tenías)
+        // 1. Fecha de nacimiento 
         RuleFor(x => x.FechaNacimiento)
             .NotEmpty().WithMessage("La fecha de nacimiento es requerida.")
             .Must(BeValidDate).WithMessage("La fecha de nacimiento no tiene un formato válido.")
             .Must(BePastDate).WithMessage("La fecha de nacimiento no puede ser mayor a la fecha actual.");
 
-        // 2. Ingresos mensuales (ya tenías)
+        // 2. Ingresos mensuales
         RuleFor(x => x.IngresosMensuales)
             .GreaterThan(0).WithMessage("Los ingresos mensuales deben ser mayores a 0.");
 
-        // 3. Tipo de cotización (ya tenías)
+        // 3. Tipo de cotización
         RuleFor(x => x.TipoCotizacion)
             .Must(x => x == 1 || x == 3)
             .WithMessage("Tipo de cotización inválido. Solo se permiten los valores 1 o 3.");
 
         // 4. Monto pensión hijos
         RuleFor(x => x.MontoPensionHijos)
-            .Equal(0).WithMessage("El monto de pensión hijos debe ser 0.");
-            //.When(x => x.MontoPensionHijos.HasValue);
+            .Equal(0).WithMessage("El monto de pensión hijos debe ser 0.")
+            .When(x => x.MontoPensionHijos.HasValue);
 
         // 5. Tipo de pensión
         RuleFor(x => x.TipoPension)
-            .Equal(1).WithMessage("El tipo de pensión debe ser 1.");
+            .Equal(1)
+            .WithMessage("El tipo de pensión debe ser 1.");
 
         // 6. Seguro gastos funerarios
         RuleFor(x => x.SeguroGastosFunerarios)
-            .Equal(false).WithMessage("El seguro de gastos funerarios no está permitido.");
+            .Equal(false)
+            .WithMessage("El seguro de gastos funerarios no está permitido.");
 
         // 7. Validación de reestructura
         RuleFor(x => x.EsReestructura)
             .Must(x => x == 0 || x == 1)
             .WithMessage("El valor de reestructura debe ser 0 o 1.");
 
-        // ===== VALIDACIONES CONDICIONALES DE REESTRUCTURA =====
 
         When(x => x.EsReestructura == 1, () =>
         {
             RuleFor(x => x.ContratosReestructura)
                 .NotEmpty().WithMessage("Contratos de reestructura requeridos.")
-                .MustAsync(VerificarContratoAsync).WithMessage("Los contratos de reestructura no son válidos.");
+                .MustAsync(VerificarContratoAsync)
+                .WithMessage("Los contratos de reestructura no son válidos.");
         });
 
         // ===== VALIDACIONES DEL PLAN =====
@@ -158,10 +157,15 @@ public class SimularCotizacionQueryValidator : AbstractValidator<SimularCotizaci
     {
         if (string.IsNullOrEmpty(contratos))
             return false;
+        var contratosSplit = contratos.Split('_').ToList();
 
-        // Implementar lógica para verificar que los contratos sean IMSS
-        // Por ahora, asumimos que cualquier contrato no vacío es válido
-        // TODO: Implementar verificación real contra base de datos
+        var contrato = _dbContext.Contrato
+               .Where(r => contratosSplit.Contains(r.Contrato1))
+               .OrderByDescending(r => r.FecActivacion)
+               .FirstOrDefault();
+
+        if (contrato == null) return false;
+
         return !string.IsNullOrWhiteSpace(contratos);
     }
 

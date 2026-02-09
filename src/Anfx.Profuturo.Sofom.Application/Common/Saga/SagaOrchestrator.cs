@@ -57,7 +57,7 @@ public class SagaOrchestrator<TContext> : ISagaOrchestrator<TContext>
         _logger?.LogDebug("Step agregado: {StepName}", GetStepName(step));
     }
 
-    public async Task<Result> ExecuteAsync(TContext context)
+    public async Task<Result> ExecuteAsync(TContext context, CancellationToken cancellationToken = default)
     {
         _logger?.LogInformation("Iniciando ejecución de saga con {StepCount} steps", _steps.Count);
 
@@ -77,7 +77,7 @@ public class SagaOrchestrator<TContext> : ISagaOrchestrator<TContext>
             {
                 _logger?.LogDebug("Ejecutando step: {StepName}", stepName);
 
-                var result = await step.ExecuteAsync(context);
+                var result = await step.ExecuteAsync(context,cancellationToken);
                 execution.EndTime = DateTime.Now;
                 execution.IsSuccess = result.IsSuccess;
 

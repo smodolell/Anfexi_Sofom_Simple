@@ -1,5 +1,5 @@
-using Anfx.Profuturo.Domain.Entities;
 using Anfx.Profuturo.Sofom.Application.Common.Interfaces;
+using Anfx.Profuturo.Sofom.Domain.Procedures;
 using Anfx.Profuturo.Sofom.Infrastructure.Persitence.Extensions;
 using Anfx.Profuturo.Sofom.Infrastructure.Persitence.Interfases;
 using Microsoft.Data.SqlClient;
@@ -67,7 +67,7 @@ public partial class ApplicationDbContextProcedures : IApplicationDbContextProce
         return _;
     }
 
-    public virtual async Task<List<usp_SaldoLiquidacionResult>> usp_SaldoLiquidacionAsync(int? idContrato, DateTime? fecha, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+    public virtual async Task<List<usp_SaldoLiquidacionResult>> uspSaldoLiquidacionAsync(int? idContrato, DateTime? fecha, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
     {
         var parameterreturnValue = new SqlParameter
         {

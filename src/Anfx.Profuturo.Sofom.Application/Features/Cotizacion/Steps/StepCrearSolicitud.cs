@@ -15,43 +15,39 @@ class StepCrearSolicitud(
     private readonly IConsecutivoService _consecutivoService = consecutivoService;
     private readonly ILogger<StepCrearSolicitud> _logger = logger;
 
-    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context)
+    public Task<Result> CompensateAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
         return Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context)
+    public async Task<Result> ExecuteAsync(ConfirmarCotizacionContext context, CancellationToken cancellationToken = default)
     {
 
 
-        // Log de inicio del proceso
-        _logger.LogInformation("Iniciando creación de solicitud para cotizador ID: {IdCotizador}", context.IdCotizador);
+        // Validar cotizador
+        _logger.LogDebug("Buscando cotizador ID: {IdCotizador}", context.IdCotizador);
 
+        var cotizador = await _dbContext.COT_Cotizador
+            .AsNoTracking()
+            .SingleOrDefaultAsync(r => r.IdCotizador == context.IdCotizador);
+        if (cotizador == null) return Result.NotFound("Cotizador no existe");
+        var idCotizador = cotizador.IdCotizador;
+
+        if (cotizador == null)
+        {
+            _logger.LogWarning("Cotizador no encontrado. ID: {IdCotizador}", idCotizador);
+            return Result.Error($"No se encontró el cotizador con ID {idCotizador}");
+        }
+
+        _logger.LogInformation("Cotizador encontrado. ID: {IdCotizador}, Nombre: {NombreCliente}",
+            cotizador.IdCotizador, cotizador.NombreCliente ?? "N/A");
+
+
+        // Iniciar transacción
+        _logger.LogDebug("Iniciando transacción para creación de solicitud");
         try
         {
-            // Validar cotizador
-            _logger.LogDebug("Buscando cotizador ID: {IdCotizador}", context.IdCotizador);
-
-            var cotizador = await _dbContext.COT_Cotizador.SingleOrDefaultAsync(r => r.IdCotizador == context.IdCotizador);
-            if (cotizador == null) return Result.NotFound("Cotizador no existe");
-            var idCotizador = cotizador.IdCotizador;
-
-            if (cotizador == null)
-            {
-                _logger.LogWarning("Cotizador no encontrado. ID: {IdCotizador}", idCotizador);
-                return Result.Error($"No se encontró el cotizador con ID {idCotizador}");
-            }
-
-            _logger.LogInformation("Cotizador encontrado. ID: {IdCotizador}, Nombre: {NombreCliente}",
-                cotizador.IdCotizador, cotizador.NombreCliente ?? "N/A");
-
-
-
-            // Iniciar transacción
-            _logger.LogDebug("Iniciando transacción para creación de solicitud");
-            await _unitOfWork.BeginTransactionAsync();
-
-            try
+            await _unitOfWork.ExecuteInTransactionAsync(async () =>
             {
                 var consecutivoSolicitud = await _consecutivoService.ObtenerSiguienteConsecutivoAsync("OT_Solicitud");
 
@@ -71,7 +67,6 @@ class StepCrearSolicitud(
                     EsImportada = false,
                     FechaAlta = DateTime.Now
                 };
-
 
                 await _dbContext.OT_Solicitud.AddAsync(solicitud);
                 _logger.LogInformation("Solicitud creada exitosamente. ID: {IdSolicitud}", solicitud.IdSolicitud);
@@ -124,50 +119,27 @@ class StepCrearSolicitud(
                 await SaveFaseSolicitudAsync(solicitud);
                 _logger.LogDebug("Fase SOL guardada exitosamente");
 
-                // Commit transacción
-                _logger.LogDebug("Confirmando transacción");
-                await _unitOfWork.CommitTransactionAsync();
-
+                
                 _logger.LogInformation(
                     "✅ Proceso completado exitosamente. Solicitud creada: ID {IdSolicitud} para cotizador ID: {IdCotizador}",
                     solicitud.IdSolicitud, idCotizador);
 
-                await _unitOfWork.CommitTransactionAsync();
-
                 context.IdSolicitud = solicitud.IdSolicitud;
+                
+            });
 
-                return Result.Success();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex,
-                    "❌ Error durante la creación de solicitud para cotizador ID: {IdCotizador}. Realizando rollback",
-                    idCotizador);
-
-                await _unitOfWork.RollbackTransactionAsync();
-                _logger.LogDebug("Rollback completado");
-
-                // Puedes clasificar diferentes tipos de errores
-                if (ex.Message.Contains("timeout", StringComparison.OrdinalIgnoreCase))
-                {
-                    _logger.LogCritical("Timeout en base de datos durante creación de solicitud");
-                    return Result.CriticalError("Timeout en la operación. Por favor intente nuevamente.");
-                }
-
-                if (ex.Message.Contains("duplicate", StringComparison.OrdinalIgnoreCase))
-                {
-                    _logger.LogWarning("Intento de crear registro duplicado");
-                    return Result.Error("Ya existe una solicitud para este cotizador.");
-                }
-
-                return Result.CriticalError($"Error al crear solicitud: {ex.Message}");
-            }
+            return Result.SuccessWithMessage("Solicitud Creada");
+        }
+        catch (Exception ex)
+        {
+            return Result.CriticalError($"Error al crear solicitud: {ex.Message}");
         }
         finally
         {
-            // Log de finalización (opcional, útil para métricas de tiempo)
             _logger.LogDebug("Finalizada ejecución de CreateSolicitudAsync para cotizador ID: {IdCotizador}", context.IdCotizador);
         }
+        
+       
     }
 
     private async Task SaveFaseSolicitudAsync(OT_Solicitud solicitud)
@@ -177,7 +149,9 @@ class StepCrearSolicitud(
         if (!consecutivoFaseHistoria.Success) throw new Exception("NO se pudo generar el consecutivo de OT_FaseHistoria");
 
         var idAsesor = solicitud.IdAsesor;
-        var fase = await _dbContext.OT_Fase.FirstOrDefaultAsync(r => r.ClaveUnica == "SOL") ?? throw new Exception("No se encontro la configuracion de fase SOL");
+        var fase = await _dbContext.OT_Fase
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.ClaveUnica == "SOL") ?? throw new Exception("No se encontro la configuracion de fase SOL");
         var faseHistoria = new OT_FaseHistoria
         {
             IdFaseHistoria = consecutivoFaseHistoria.ConsecutivoGenerado,

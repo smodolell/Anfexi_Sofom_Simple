@@ -11,12 +11,12 @@ public class ActualizarSolicitudReestructuraStep(
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly IApplicationDbContext _dbContext = dbContext;
 
-    public Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         var model = context.Model;
 

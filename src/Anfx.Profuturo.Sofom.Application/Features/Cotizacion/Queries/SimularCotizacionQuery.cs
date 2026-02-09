@@ -11,7 +11,7 @@ public class SimularCotizacionQuery : IQuery<Result<CotizacionDto>>
     public decimal MontoPrestamo { get; set; }
     public decimal CapacidadPagoInforme { get; set; }
     public decimal IngresosMensuales { get; set; }
-    public decimal MontoPensionHijos { get; set; }
+    public decimal? MontoPensionHijos { get; set; }
     public decimal PorcentajePensionAlimentacion { get; set; }
     public int EsReestructura { get; set; }
     public string ContratosReestructura { get; set; } = string.Empty;

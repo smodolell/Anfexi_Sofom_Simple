@@ -4,35 +4,35 @@ public class COT_Agencia
 {
     public int IdAgencia { get; set; }
 
-    public string Nombre { get; set; }
+    public string? Nombre { get; set; }
 
-    public string Representante { get; set; }
+    public string Representante { get; set; } = string.Empty;
 
-    public string NombrePersona { get; set; }
+    public string? NombrePersona { get; set; }
 
-    public string ApellidoPaterno { get; set; }
+    public string? ApellidoPaterno { get; set; }
 
-    public string ApellidoMaterno { get; set; }
+    public string? ApellidoMaterno { get; set; }
 
     public DateTime? Fecha { get; set; }
 
     public int? IdPersonaJuridica { get; set; }
 
-    public string RFC { get; set; }
+    public string? RFC { get; set; }
 
-    public string Identificador { get; set; }
+    public string? Identificador { get; set; }
 
     public DateTime? FechaAlta { get; set; }
 
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
     public int? IdUnidadNegocio { get; set; }
 
-    public string Calle { get; set; }
+    public string? Calle { get; set; }
 
-    public string NumExterior { get; set; }
+    public string? NumExterior { get; set; }
 
-    public string NumInterior { get; set; }
+    public string? NumInterior { get; set; }
 
     public int? IdColonia { get; set; }
 
@@ -40,15 +40,15 @@ public class COT_Agencia
 
     public int? IdTipoTelefono { get; set; }
 
-    public string Telefono { get; set; }
+    public string? Telefono { get; set; }
 
-    public string NombreContacto { get; set; }
+    public string? NombreContacto { get; set; }
 
-    public string Extension { get; set; }
+    public string? Extension { get; set; }
 
-    public string IdClientePeopleSoft { get; set; }
+    public string? IdClientePeopleSoft { get; set; }
 
-    public string ReferenciaCIF { get; set; }
+    public string? ReferenciaCIF { get; set; }
 
     public ICollection<Banco> Banco { get; set; } = new List<Banco>();
 

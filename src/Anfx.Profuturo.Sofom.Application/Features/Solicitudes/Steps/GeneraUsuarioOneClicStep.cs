@@ -11,12 +11,12 @@ public class GeneraUsuarioOneClicStep(
     private readonly IApplicationDbContext _dbContext = dbContext;
     private readonly IDatabaseService _databaseServices = databaseServices;
 
-    public async Task<Result> CompensateAsync(CreateSolicitudContext context)
+    public async Task<Result> CompensateAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         return await Task.FromResult(Result.Success());
     }
 
-    public async Task<Result> ExecuteAsync(CreateSolicitudContext context)
+    public async Task<Result> ExecuteAsync(CreateSolicitudContext context, CancellationToken cancellationToken = default)
     {
         try
         {

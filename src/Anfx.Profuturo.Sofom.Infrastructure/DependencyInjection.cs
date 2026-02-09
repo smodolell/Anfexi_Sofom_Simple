@@ -2,9 +2,11 @@
 using Anfx.Profuturo.Sofom.Infrastructure.Persitence;
 using Anfx.Profuturo.Sofom.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Anfx.Profuturo.Sofom.Infrastructure;
 
@@ -25,10 +27,19 @@ public static class PersitenceServiceRegistration
                 sqlOptions =>
                 {
                     sqlOptions.CommandTimeout(30);
-                    sqlOptions.EnableRetryOnFailure(
-                        maxRetryCount: 3);
+                    sqlOptions.ExecutionStrategy(
+                        dependencies => new SqlServerRetryingExecutionStrategy(
+                            dependencies,
+                            maxRetryCount: 0, 
+                            maxRetryDelay: TimeSpan.Zero,
+                            errorNumbersToAdd: null
+                    ));
+
+                    sqlOptions.EnableRetryOnFailure(maxRetryCount: 0);
+                    
                 }
             );
+        
 
             // Enable detailed logging in development
             var environment = configuration["ASPNETCORE_ENVIRONMENT"];
@@ -50,7 +61,7 @@ public static class PersitenceServiceRegistration
         // Register Unit of Work
         services.AddScoped<IDatabaseService, DatabaseService>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddScoped<IConsecutivoService, ConsecutivoService>();
+        services.AddScoped<IConsecutivoService, ConsecutivoServiceV2>();
 
         // Register repositories 
         //Solicitud

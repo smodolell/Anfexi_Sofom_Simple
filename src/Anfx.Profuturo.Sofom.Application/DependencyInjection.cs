@@ -1,4 +1,5 @@
-﻿using Anfx.Profuturo.Sofom.Application.Features.Contratos.Interfaces;
+﻿using Anfx.Profuturo.Sofom.Application.Common.Services;
+using Anfx.Profuturo.Sofom.Application.Features.Contratos.Interfaces;
 using Anfx.Profuturo.Sofom.Application.Features.Contratos.Services;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Factories;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Interfaces;
@@ -7,6 +8,9 @@ using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Steps;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Calculadora;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Coordinators;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Seguro;
+using Anfx.Profuturo.Sofom.Application.Features.Documentos.Factoties;
+using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Factories;
+using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Steps;
 using FluentValidation;
 using LiteBus.Commands;
 using LiteBus.Extensions.Microsoft.DependencyInjection;
@@ -56,6 +60,7 @@ public static class DependencyInjection
         //services.AddScoped<ICotizadorService, CotizadorService>();
         //services.AddScoped<ISolicitudService, SolicitudService>();
         services.AddScoped<IFolioService, FolioService>();
+        services.AddScoped<IExpedienteService, ExpedienteService>();
         services.AddScoped<IReestructuracionService, ReestructuracionService>();
 
         // Registrar factory y coordinador
@@ -68,14 +73,33 @@ public static class DependencyInjection
         services.AddScoped<StepReestructuraUpdateFase>();
         services.AddScoped<StepReestructuraObtenerFolio>();
         services.AddScoped<StepCrearCotizador>();
-        services.AddScoped<StepCrearCotizador>();
+        services.AddScoped<StepCrearSolicitud>();
         services.AddScoped<StepGenerarTablaAmortizacion>();
+        services.AddScoped<StepGenerarCAT>();
 
         services.AddScoped<CotizacionCoordinator>();
 
         //Services 
      
+        services.AddScoped<ICotizadorService, CotizadorService>();
         services.AddScoped<ITablaAmortizacionService, TablaAmortizacionService>();
+        
+        
+        services.AddScoped<ISolicitudSagaFactory, SolicitudSagaFactory>();
+        services.AddScoped<ActualizarFaseReestructuraStep>();
+        services.AddScoped<ActualizarFaseStep>();
+        services.AddScoped<ActualizarSolicitanteStep>();
+        services.AddScoped<ActualizarSolicitudReestructuraStep>();
+        services.AddScoped<BuscarColoniaStep>();
+        services.AddScoped<CrearExpedienteStep>();
+        services.AddScoped<CrearSolicitanteStep>();
+        services.AddScoped<GeneraUsuarioOneClicStep>();
+        services.AddScoped<GuardarDatosAdicionalesStep>();
+
+
+        services.AddScoped<IGuardarExpedienteSagaFactory, GuardarExpedienteSagaFactory>();
+
+
 
         //services.AddTransient(typeof(ISagaOrchestrator<>), typeof(SagaOrchestrator<>));
 

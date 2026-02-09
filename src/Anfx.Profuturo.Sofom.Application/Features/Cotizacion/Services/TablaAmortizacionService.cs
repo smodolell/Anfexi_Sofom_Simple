@@ -87,75 +87,75 @@ public class TablaAmortizacionService(
        int idCotizador,
        List<TablaAmortizaItemDto> tablaAmortizacionDto)
     {
-       await _unitOfWork.BeginTransactionAsync();
 
         try
         {
-
-            var cot = await _dbContext.COT_Cotizador
-                .Include(c => c.IdPlanNavigation)
-                .FirstAsync(r => r.IdCotizador == idCotizador);
-
-            var plazo = await _dbContext.COT_Plazo
-                           .Where(r => r.IdPlazo == cot.IdPlazo)
-                           .Select(r => r.Plazo)
-                           .FirstAsync();
-
-            // 2. Obtener clave consecutiva usando el servicio
-            var consecutivo = await _consecutivoService
-                .ObtenerSiguienteConsecutivoAsync("COT_TablaAmortizacion");
-
-            if (!consecutivo.Success)
+            await _unitOfWork.ExecuteInTransactionAsync(async () =>
             {
-                throw new InvalidOperationException($"Error al obtener consecutivo: {consecutivo.ErrorMessage}");
-            }
 
-            // Ajustar clave según la lógica original
-            var clave = consecutivo.ConsecutivoGenerado - plazo;
+                var cotizador = await _dbContext.COT_Cotizador
+                    .Include(c => c.IdPlanNavigation)
+                    .AsNoTracking()
+                    .FirstAsync(r => r.IdCotizador == idCotizador);
 
-            // 3. Mapear y guardar registros
-            var tablaEntities = new List<COT_TablaAmortiza>();
-            var fechaAlta = DateTime.Now;
+                var plazo = await _dbContext.COT_Plazo
+                               .Where(r => r.IdPlazo == cotizador.IdPlazo)
+                               .AsNoTracking()
+                               .Select(r => r.Plazo)
+                               .FirstAsync();
 
-            foreach (var itemDto in tablaAmortizacionDto)
-            {
-                var entity = new COT_TablaAmortiza
+                // 2. Obtener clave consecutiva usando el servicio
+                var consecutivo = await _consecutivoService
+                    .ObtenerConsecutivoActualAsync("COT_TablaAmortiza");
+
+
+                
+
+                // 3. Mapear y guardar registros
+                var tablaEntities = new List<COT_TablaAmortiza>();
+                var fechaAlta = DateTime.Now;
+
+                foreach (var itemDto in tablaAmortizacionDto)
                 {
-                    IdTablaAmortiza = clave + itemDto.NoPago,
-                    IdTipoTabla = 1,
-                    IdCotizador = idCotizador,
-                    NoPago = itemDto.NoPago,
-                    FecVencimiento = itemDto.FecVencimiento,
-                    Capital = itemDto.Capital,
-                    Interes = itemDto.Interes,
-                    IVA = itemDto.IVA,
-                    Total = itemDto.Total,
-                    SaldoInicial = itemDto.SaldoInicial,
-                    SaldoFinal = itemDto.SaldoFinal,
-                    //ServicioMedico = itemDto.ServicioMedico,
-                    RequiereCalculo = false,
-                    VersionTabla = 0,
-                    Procesado = false,
-                    EsValorResidual = false,
+                    var entity = new COT_TablaAmortiza
+                    {
+                        IdTablaAmortiza = consecutivo + itemDto.NoPago,
+                        IdTipoTabla = 1,
+                        IdCotizador = idCotizador,
+                        NoPago = itemDto.NoPago,
+                        FecVencimiento = itemDto.FecVencimiento,
+                        Capital = itemDto.Capital,
+                        Interes = itemDto.Interes,
+                        IVA = itemDto.IVA,
+                        Total = itemDto.Total,
+                        SaldoInicial = itemDto.SaldoInicial,
+                        SaldoFinal = itemDto.SaldoFinal,
+                        //ServicioMedico = itemDto.ServicioMedico,
+                        RequiereCalculo = false,
+                        VersionTabla = 0,
+                        Procesado = false,
+                        EsValorResidual = false,
 
-                };
-                tablaEntities.Add(entity);
-            }
+                    };
+                    tablaEntities.Add(entity);
+                }
 
-            // 4. Guardar en lote
-            await _dbContext.COT_TablaAmortiza.AddRangeAsync(tablaEntities);
-            await _dbContext.SaveChangesAsync();
+                // 4. Guardar en lote
+                await _dbContext.COT_TablaAmortiza.AddRangeAsync(tablaEntities);
+                await _dbContext.SaveChangesAsync();
 
-            await _consecutivoService.ReiniciarConsecutivoAsync("COT_TablaAmortizacion", tablaEntities.Max(m => m.IdTablaAmortiza));
+                await _consecutivoService.ReiniciarConsecutivoAsync("COT_TablaAmortiza", tablaEntities.Max(m => m.IdTablaAmortiza));
 
-            await _unitOfWork.CommitTransactionAsync();
+               
 
-            return tablaEntities.Count;
+
+            });
+            return tablaAmortizacionDto.Count;
         }
-        catch
+        catch (Exception ex) 
         {
-            await _unitOfWork.RollbackTransactionAsync();
-            throw;
+            
+            throw ex;
         }
     }
 }
