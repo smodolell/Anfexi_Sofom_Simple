@@ -99,7 +99,7 @@ public partial class OT_SolicitudConfiguration : IEntityTypeConfiguration<OT_Sol
             .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("FK_OT_Solicitud_COT_Cotizador1");
 
-        entity.HasOne(d => d.IdSolicitanteNavigation).WithMany(p => p.OT_Solicitud)
+        entity.HasOne(d => d.Solicitante).WithMany(p => p.OT_Solicitud)
             .HasForeignKey(d => d.IdSolicitante)
             .HasConstraintName("FK_OT_Solicitud_OT_Solicitante");
 

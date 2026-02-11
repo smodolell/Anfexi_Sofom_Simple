@@ -16,6 +16,7 @@ public partial class ApplicationDbContext : DbContext, IApplicationDbContext
     public virtual DbSet<CatTipoDocumentoExpediente> CatTipoDocumentoExpedientes { get; set; }
     public virtual DbSet<CatTiposMimeDocumento> CatTiposMimeDocumentos { get; set; }
 
+    public virtual DbSet<CompaniaTelefonica> CompaniaTelefonicas { get; set; }
     public virtual DbSet<COT_Agencia> COT_Agencia { get; set; }
 
     public virtual DbSet<COT_Calculadora> COT_Calculadora { get; set; }
@@ -47,8 +48,6 @@ public partial class ApplicationDbContext : DbContext, IApplicationDbContext
     public virtual DbSet<COT_TipoSeguro> COT_TipoSeguro { get; set; }
 
     public virtual DbSet<Colonia> Colonia { get; set; }
-
-    public virtual DbSet<CompaniaTelefonica> CompaniaTelefonica { get; set; }
 
     public virtual DbSet<Consecutivo> Consecutivo { get; set; }
 
@@ -136,6 +135,8 @@ public partial class ApplicationDbContext : DbContext, IApplicationDbContext
     public virtual DbSet<TipoPension> TiposPension { get; set; }
     public virtual DbSet<TipoPrestamo> TiposPrestamo { get; set; }
     public virtual DbSet<OC_ElementosAuditoria> OC_ElementosAuditoria { get; set; }
+    public virtual DbSet<TipoPension> TipoPensiones { get; set; }
+    public virtual DbSet<TipoPrestamo> TipoPrestamos { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {

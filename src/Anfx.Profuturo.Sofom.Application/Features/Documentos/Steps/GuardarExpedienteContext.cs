@@ -7,10 +7,9 @@ public class GuardarExpedienteContext
     public int IdExpediente { get; set; }
 
     public int IdTipoDocumento { get; set; }
-    public string Nombre { get; set; }
-    public string MIME { get; set; }
-    //public string Documento { get; set; }
-    public string Documento { get; set; }
+    public string Nombre { get; set; } = string.Empty;
+    public string MIME { get; set; } = string.Empty;
+    public string Documento { get; set; } = string.Empty;
 
 
 

@@ -14,6 +14,8 @@ public interface IApplicationDbContext
     DbSet<BitacoraCodigos> BitacoraCodigos { get; set; }
     DbSet<CatTipoDocumentoExpediente> CatTipoDocumentoExpedientes { get; set; }
     DbSet<CatTiposMimeDocumento> CatTiposMimeDocumentos { get; set; }
+    DbSet<Configuracion> Configuraciones { get; set; }
+    DbSet<CompaniaTelefonica> CompaniaTelefonicas { get; set; }
     DbSet<COT_Agencia> COT_Agencia { get; set; }
 
     DbSet<COT_Calculadora> COT_Calculadora { get; set; }
@@ -46,7 +48,6 @@ public interface IApplicationDbContext
 
     DbSet<Colonia> Colonia { get; set; }
 
-    DbSet<CompaniaTelefonica> CompaniaTelefonica { get; set; }
 
     DbSet<Consecutivo> Consecutivo { get; set; }
 
@@ -129,6 +130,8 @@ public interface IApplicationDbContext
     DbSet<URL_Solicitud> URL_Solicitud { get; set; }
 
     DbSet<Usuario> Usuario { get; set; }
+    DbSet<TipoPension> TipoPensiones { get; set; }
+    DbSet<TipoPrestamo> TipoPrestamos { get; set; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

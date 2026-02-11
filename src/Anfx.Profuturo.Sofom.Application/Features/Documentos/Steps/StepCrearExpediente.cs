@@ -18,34 +18,38 @@ internal class StepCrearExpediente(IApplicationDbContext dbContext, IExpedienteS
         var cotizador = await _dbContext.COT_Cotizador
             .AsNoTracking()
             .FirstOrDefaultAsync(w => w.Folio == context.Folio);
+
         if (cotizador == null)
             return Result.NotFound("Cotizador no encontrado");
 
         var solicitud = await _dbContext.OT_Solicitud
-            .Include(i => i.IdSolicitanteNavigation)
+            .Include(i => i.Solicitante)
             .AsNoTracking()
             .FirstOrDefaultAsync(w => w.IdCotizador == cotizador.IdCotizador);
 
         if (solicitud == null)
             return Result.NotFound("Solicitud no encontrada");
 
-        if (solicitud.IdSolicitanteNavigation == null)
+        if (solicitud.Solicitante == null)
             return Result.NotFound("Solicitante no encontrada");
 
         var idAgencia = cotizador.IdAgencia ?? 3;
         var idAsesor = solicitud.IdAsesor;
-        var idSolicitante = solicitud.IdSolicitanteNavigation.IdSolicitante;
+        var idSolicitante = solicitud.Solicitante.IdSolicitante;
         var idQuePersona = 2;
 
 
         try
         {
-            await _expedienteService.CreateOrUpdateExpediente(
-                idSolicitante,
-                idQuePersona,
-                idAsesor,
-                idAgencia
-            );
+            var idExpediente = await _expedienteService.CreateOrUpdateExpediente(
+                     idSolicitante,
+                     idQuePersona,
+                     idAsesor,
+                     idAgencia
+                 );
+
+            context.IdExpediente = idExpediente;
+
             return Result.Success();
         }
         catch (Exception ex)

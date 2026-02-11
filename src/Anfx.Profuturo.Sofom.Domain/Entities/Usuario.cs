@@ -7,9 +7,9 @@ public partial class Usuario
 
     public int IdUsuario { get; set; }
 
-    public string UserName { get; set; }
+    public string? UserName { get; set; }
 
-    public string UserPass { get; set; }
+    public string? UserPass { get; set; }
 
     public DateTime? FechaRegistracion { get; set; }
 
@@ -17,9 +17,9 @@ public partial class Usuario
 
     public int? IdRol { get; set; }
 
-    public string NombreCompleto { get; set; }
+    public string? NombreCompleto { get; set; }
 
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
     public bool? Activo { get; set; }
 
@@ -29,13 +29,13 @@ public partial class Usuario
 
     public bool? RequiereCambioPass { get; set; }
 
-    public string IdiomaUI { get; set; }
+    public string? IdiomaUI { get; set; }
 
     public int IdTipoAsesor { get; set; }
 
-    public string Celular { get; set; }
+    public string? Celular { get; set; }
 
-    public string NumeroEmpleado { get; set; }
+    public string? NumeroEmpleado { get; set; }
 
     public int? IdUnidadNegocio { get; set; }
 
@@ -45,7 +45,7 @@ public partial class Usuario
 
     public bool? AutorizacionCB { get; set; }
 
-    public string EmployeeID { get; set; }
+    public string? EmployeeID { get; set; }
 
     public Genero IdGeneroNavigation { get; set; }
 

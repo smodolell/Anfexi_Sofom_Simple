@@ -102,7 +102,10 @@ public class ActualizarSolicitanteStep(
             solicitantePF.CargoFederal = PLDHelper.NormalizarRespuestaPLD(model.Persona.Pregunta1PLD);
             solicitantePF.CargoFederalPariente = PLDHelper.NormalizarRespuestaPLD(model.Persona.Cargo2PLD);
 
-            var IdCiaTelefonica = _databaseServices.GetIdCiaTelefonica(model.Domicilio.CiaTelefonica);
+            var companiaTelefonica = await _dbContext.CompaniaTelefonicas
+              .FirstOrDefaultAsync(r => r.Descripcion.Equals(model.Domicilio.CiaTelefonica));
+
+            int? IdCiaTelefonica = companiaTelefonica != null ? companiaTelefonica.IdCiaTelefonica : null;
 
             solicitantePF.IdCiaTelefonica = IdCiaTelefonica;
             solicitante.OT_SolicitantePF = solicitantePF;

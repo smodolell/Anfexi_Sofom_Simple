@@ -24,6 +24,6 @@
     <ProjectReference Include="..\Anfx.Profuturo.Sofom.Domain\Anfx.Profuturo.Sofom.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Documentos\DTOs\" />
+    <Folder Include="Features\Documentos\Queries\" />
   </ItemGroup>
 </Project>

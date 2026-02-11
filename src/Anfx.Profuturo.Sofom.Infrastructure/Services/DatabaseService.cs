@@ -29,10 +29,7 @@ internal class DatabaseService(ApplicationDbContext dbContext,ILogger<DatabaseSe
       return  await _dbContext.Procedures.uspSaldoLiquidacionAsync(idContrato, fecha);
     }
 
-    public int? GetIdCiaTelefonica(string ciaTelefonica)
-    {
-        return _dbContext.Database.SqlQuery<int?>($" SELECT IdCiaTelefonica FROM CompaniaTelefonica WHERE Descripcion='{ciaTelefonica}'").FirstOrDefault();
-    }
+    
 
     public int? GetIdDelegacionIMMS(string dependenciaIMSS)
     {
@@ -103,9 +100,10 @@ internal class DatabaseService(ApplicationDbContext dbContext,ILogger<DatabaseSe
                     new SqlParameter("@Pais", pais ?? (object)DBNull.Value)
             };
 
-            var result = await _dbContext.Database
+            var result = _dbContext.Database
                 .SqlQueryRaw<int>("EXEC dbo.GetOrCreateColoniaId_Transaccional @Colonia, @Municipio, @Estado, @CodigoPostal, @Ciudad, @Pais", parameters)
-                .FirstOrDefaultAsync();
+                .AsEnumerable()
+                .FirstOrDefault();
 
             if (result == 0 && !string.IsNullOrEmpty(colonia) &&
                 !string.IsNullOrEmpty(municipio) && !string.IsNullOrEmpty(estado) &&
@@ -165,5 +163,16 @@ internal class DatabaseService(ApplicationDbContext dbContext,ILogger<DatabaseSe
                                          .ToList();
     }
 
+
+
+    public GetExpedientesCompletosModel ConsultaExpedientesCargados(string folio)
+    {
+        var pFolio = new SqlParameter("@Folio", folio);
+
+        var lstGetExpediente = _dbContext.Database.SqlQueryRaw<GetExpedientesCompletosModel>("EXEC usp_GetExpedientesCompletos @Folio", pFolio).ToList();
+        var result = lstGetExpediente.FirstOrDefault();
+        if (result == null) throw new Exception("usp_GetExpedientesCompletos no produjo resultados");
+        return result;
+    }
 }
 

@@ -1,8 +1,6 @@
-﻿
+﻿namespace Anfx.Profuturo.Sofom.Domain.Entities;
 
-namespace Anfx.Profuturo.Sofom.Domain.Entities;
-
-public partial class EXP_DocumentoConfig
+public class EXP_DocumentoConfig
 {
 
     public int IdDocumentoConfig { get; set; }
@@ -11,7 +9,7 @@ public partial class EXP_DocumentoConfig
 
     public int IdTipoPersonaAplica { get; set; }
 
-    public string Referencia { get; set; }
+    public string? Referencia { get; set; }
 
     public bool Activo { get; set; }
 

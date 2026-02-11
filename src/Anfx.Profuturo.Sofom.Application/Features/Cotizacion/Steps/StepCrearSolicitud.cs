@@ -106,7 +106,7 @@ class StepCrearSolicitud(
                     await _dbContext.OT_Solicitante.AddAsync(newSolicitante);
                     _logger.LogInformation("Solicitante creado exitosamente. ID: {IdSolicitante}", newSolicitante.IdSolicitante);
 
-                    solicitud.IdSolicitanteNavigation = newSolicitante;
+                    solicitud.Solicitante = newSolicitante;
                     _logger.LogDebug("Solicitante asignado a solicitud ID: {IdSolicitud}", solicitud.IdSolicitud);
                 }
                 else

@@ -1,5 +1,5 @@
 ﻿using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.DTOs;
-using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Factories;
+using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Interfaces;
 using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Steps;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -51,6 +51,7 @@ internal class CreateSolicitudCommandHandler(
         var context = new CreateSolicitudContext
         {
             Folio = cotizador.Folio,
+            IdSolicitud = solicitud.IdSolicitud,
             IdSolicitante = solicitud.IdSolicitante ?? 0,
             EsReestructuracion = rees != null,
             Model = model,

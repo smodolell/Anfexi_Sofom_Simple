@@ -10,8 +10,6 @@ public interface IDatabaseService
     Task<List<usp_RC_IniciaReestructuracionIMSSResult>> usp_RC_IniciaReestructuracionIMSSAsync(int? idContrato, CancellationToken cancellationToken = default);
 
     int? GetIdDelegacionIMMS(string dependenciaIMSS);
-    int? GetIdCiaTelefonica(string ciaTelefonica);
-
     Task CreateOneClickUserAsync();
 
 
@@ -27,6 +25,6 @@ public interface IDatabaseService
         int idUsuario,
         int idAgencia);
 
-
+    GetExpedientesCompletosModel ConsultaExpedientesCargados(string folio);
 }
 

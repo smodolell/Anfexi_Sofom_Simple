@@ -3,6 +3,7 @@ using Anfx.Profuturo.Sofom.Application.Common.Utils;
 using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Steps;
 
@@ -60,7 +61,7 @@ public class CrearSolicitanteStep(
                 {
                     IdSolicitante = consecutivo.ConsecutivoGenerado,
                 };
-                solicitud.IdSolicitanteNavigation = solicitante;
+                solicitud.Solicitante = solicitante;
             }
 
 
@@ -78,7 +79,7 @@ public class CrearSolicitanteStep(
 
 
             MapSolicitante(model, solicitante);
-            MapSolicitantePF(model, solicitante);
+            await MapSolicitantePF(model, solicitante);
             await MapCuentaBancaria(model, solicitante);
             await MapDireccion(model, solicitante);
 
@@ -110,7 +111,7 @@ public class CrearSolicitanteStep(
         solicitante.IdPersonaJuridica = 1;
         solicitante.Email = model.Domicilio.Correo;
     }
-    private void MapSolicitantePF(SolicitudModel model, OT_Solicitante solicitante)
+    private async Task MapSolicitantePF(SolicitudModel model, OT_Solicitante solicitante)
     {
 
         var solicitantePF = solicitante.OT_SolicitantePF;
@@ -181,9 +182,12 @@ public class CrearSolicitanteStep(
         solicitantePF.CargoFederal = PLDHelper.NormalizarRespuestaPLD(model.Persona.Pregunta1PLD);
         solicitantePF.CargoFederalPariente = PLDHelper.NormalizarRespuestaPLD(model.Persona.Cargo2PLD);
 
-        var IdCiaTelefonica = _databaseService.GetIdCiaTelefonica(model.Domicilio.CiaTelefonica);
 
 
+        var companiaTelefonica = await _dbContext.CompaniaTelefonicas
+                  .FirstOrDefaultAsync(r => r.Descripcion.Equals(model.Domicilio.CiaTelefonica));
+
+        int? IdCiaTelefonica = companiaTelefonica != null ? companiaTelefonica.IdCiaTelefonica : null;
 
         solicitantePF.IdCiaTelefonica = IdCiaTelefonica;
         solicitantePF.IdEstadoCivil = 0;

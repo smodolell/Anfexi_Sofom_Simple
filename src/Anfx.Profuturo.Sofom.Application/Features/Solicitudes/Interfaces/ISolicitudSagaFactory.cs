@@ -1,7 +1,7 @@
 ﻿using Anfx.Profuturo.Sofom.Application.Common.Saga;
 using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Steps;
 
-namespace Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Factories;
+namespace Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Interfaces;
 
 public interface ISolicitudSagaFactory
 {

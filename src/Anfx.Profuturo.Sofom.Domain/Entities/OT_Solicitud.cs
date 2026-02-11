@@ -49,7 +49,7 @@ public partial class OT_Solicitud
 
     public COT_Cotizador IdCotizadorNavigation { get; set; }
 
-    public OT_Solicitante IdSolicitanteNavigation { get; set; }
+    public OT_Solicitante Solicitante { get; set; }
 
     public ICollection<OT_FaseHistoria> OT_FaseHistoria { get; set; } = new List<OT_FaseHistoria>();
 

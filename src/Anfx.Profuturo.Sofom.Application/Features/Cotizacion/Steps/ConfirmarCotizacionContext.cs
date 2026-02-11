@@ -1,5 +1,4 @@
 ﻿using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.DTOs;
-using System.Net.Http.Headers;
 
 namespace Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Steps;
 

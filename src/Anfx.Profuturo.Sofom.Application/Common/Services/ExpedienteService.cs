@@ -80,7 +80,7 @@ public class ExpedienteService(IUnitOfWork unitOfWork, IApplicationDbContext dbC
                                          .ToList();
 
 
-            if (!itemsFromQuery.Any())
+            if (itemsFromQuery.Any())
             {
 
                 var consecutivoExpedienteDocumento = await _consecutivoService.ObtenerSiguienteConsecutivoAsync("EXP_ExpedienteDocumento");

@@ -23,7 +23,7 @@ public class Documentos : EndpointGroupBase
          .Produces<ProblemDetails>(StatusCodes.Status409Conflict);
     }
 
-    public async Task<IResult> GuardarExpediente(
+    public static async Task<IResult> GuardarExpediente(
         [FromServices] ICommandMediator commandMediator,
         [FromBody] GuardarExpedienteRequest model)
     {

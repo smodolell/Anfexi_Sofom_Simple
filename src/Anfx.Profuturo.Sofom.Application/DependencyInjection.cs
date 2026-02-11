@@ -9,7 +9,9 @@ using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Calculador
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Coordinators;
 using Anfx.Profuturo.Sofom.Application.Features.Cotizacion.Strategies.Seguro;
 using Anfx.Profuturo.Sofom.Application.Features.Documentos.Factoties;
+using Anfx.Profuturo.Sofom.Application.Features.Documentos.Steps;
 using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Factories;
+using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Interfaces;
 using Anfx.Profuturo.Sofom.Application.Features.Solicitudes.Steps;
 using FluentValidation;
 using LiteBus.Commands;
@@ -96,25 +98,14 @@ public static class DependencyInjection
         services.AddScoped<GeneraUsuarioOneClicStep>();
         services.AddScoped<GuardarDatosAdicionalesStep>();
 
-
+        
+        //Documentos
         services.AddScoped<IGuardarExpedienteSagaFactory, GuardarExpedienteSagaFactory>();
+        services.AddScoped<StepActualizarEstatusExpediente>();
+        services.AddScoped<StepActualizarFaseExpediente>();
+        services.AddScoped<StepCrearExpediente>();
+        services.AddScoped<StepGuardarDocumento>();
 
-
-
-        //services.AddTransient(typeof(ISagaOrchestrator<>), typeof(SagaOrchestrator<>));
-
-        ////Solicitud
-        //services.AddScoped<ISolicitudSagaFactory, SolicitudSagaFactory>();
-        //services.AddScoped<ActualizarFaseReestructuraStep>();
-        //services.AddScoped<ActualizarFaseStep>();
-        //services.AddScoped<ActualizarSolicitanteStep>();
-        //services.AddScoped<ActualizarSolicitudReestructuraStep>();
-        //services.AddScoped<BuscarColoniaStep>();
-        //services.AddScoped<CrearExpedienteStep>();
-        //services.AddScoped<CrearSolicitanteStep>();
-        //services.AddScoped<CreateSolicitudContext>();
-        //services.AddScoped<GeneraUsuarioOneClicStep>();
-        //services.AddScoped<GuardarDatosAdicionalesStep>();
 
         return services;
     }

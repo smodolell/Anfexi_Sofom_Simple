@@ -31,8 +31,13 @@ internal class GuardarExpedienteCommandHandler(
             var context = new GuardarExpedienteContext
             {
                 Folio = message.Folio,
+                IdTipoDocumento = message.IdTipoDocumento,
+                MIME = message.MIME,
+                Nombre = message.Nombre,
+                Documento = message.Documento,
             };
             var saga = _guardarExpedienteSagaFactory.GuardarExpedienteSaga();
+
             var sagaResult = await saga.ExecuteAsync(context, cancellationToken);
 
 
@@ -50,40 +55,6 @@ internal class GuardarExpedienteCommandHandler(
 
 
 
-        //var cotizador = await _dbContext.COT_Cotizador.FirstOrDefaultAsync(w => w.Folio == message.Folio);
-        //if (cotizador == null)
-        //    return Result.NotFound("Cotizador no encontrado");
-
-        //var solicitud = await _dbContext.OT_Solicitud
-        //    .Include(i => i.IdSolicitanteNavigation)
-        //    .FirstOrDefaultAsync(w => w.IdCotizador == cotizador.IdCotizador);
-        //if (solicitud == null)
-        //    return Result.NotFound("Solicitud no encontrada");
-
-        //if (solicitud.IdSolicitanteNavigation == null)
-        //    return Result.NotFound("Solicitante no encontrada");
-
-        //var idAgencia = cotizador.IdAgencia ?? 3;
-        //var idAsesor = solicitud.IdAsesor;
-        //var idSolicitante = solicitud.IdSolicitanteNavigation.IdSolicitante;
-        //var idQuePersona = 2;
-
-
-        //try
-        //{
-        //    await _expedienteService.CreateOrUpdateExpediente(
-        //        idSolicitante,
-        //        idQuePersona,
-        //        idAsesor,
-        //        idAgencia
-        //    );
-        //    return Result.Success();
-        //}
-        //catch (Exception ex)
-        //{
-
-        //    return Result.Error(ex.Message);
-        //}
 
 
 
